@@ -1,0 +1,9 @@
+# Kubernetes
+*.log
+*.pid
+*.sock
+.env
+.DS_Store
+.kubeconfig
+.cache/
+.kube/
