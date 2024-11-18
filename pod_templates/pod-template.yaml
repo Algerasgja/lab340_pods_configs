@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: qhq-pod            # 设置为用户名-pod
+  labels:
+    app: user-app
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - lab3         # 设置为当前使用的节点
+  serviceAccountName: zj   # 修改用户名称
+  containers:
+  - name: zj-container     # 修改容器名称
+    image: miracle296/zj_test_image:latest    # 修改为想要使用的镜像
+    ports:
+    - containerPort: 5000    # 根据自己的需要增加端口
+      hostPort: 35000
+    volumeMounts:
+    - mountPath: /data      # 容器内数据的位置
+      name: zj-volume
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "250m"
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+  volumes:
+  - name: zj-volume
+    hostPath:
+      path: /root/data     # 卷挂载，为上面设置的数据文件位置
+      type: Directory

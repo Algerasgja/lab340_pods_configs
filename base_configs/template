@@ -1,0 +1,13 @@
+# Setup Guide
+
+## Prerequisites
+- Install `kubectl`
+- Configure your Kubernetes cluster
+
+## Applying Configurations
+- Navigate to the repository directory: `cd pod-configs`
+- Apply configurations: `kubectl apply -f pods/`
+
+## Running Scripts
+- Initialize environment: `bash scripts/init-env.sh`
+- Backup pods: `bash scripts/backup-pods.sh`
