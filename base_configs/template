@@ -1,13 +1,10 @@
-# Setup Guide
+[database]
+host = localhost
+port = 5432
+user = admin
+password = secret
 
-## Prerequisites
-- Install `kubectl`
-- Configure your Kubernetes cluster
-
-## Applying Configurations
-- Navigate to the repository directory: `cd pod-configs`
-- Apply configurations: `kubectl apply -f pods/`
-
-## Running Scripts
-- Initialize environment: `bash scripts/init-env.sh`
-- Backup pods: `bash scripts/backup-pods.sh`
+[app]
+log_level = info
+api_key = your_api_key_here
+base_url = http://api.example.com
